@@ -2,10 +2,9 @@
 # Contributor: Erik Johnson <palehose at gmail dot com>
 # Contributor: <kwrazi at gmail dot com>
 
-pkgbase="ptpython"
 pkgname="ptpython"
-pkgver="3.0.23"
-pkgrel="2"
+pkgver="3.0.27"
+pkgrel="1"
 pkgdesc="Python REPL build on top of prompt_toolkit"
 arch=("any")
 url="https://github.com/prompt-toolkit/ptpython"
@@ -23,20 +22,20 @@ optdepends=(
     "ipython: ptipython (ptpython + ipython)"
 )
 provides=("ptpython3")
-source=("${pkgbase}-${pkgver}.tar.gz::https://github.com/prompt-toolkit/ptpython/archive/refs/tags/${pkgver}.tar.gz")
+source=("${pkgname}-${pkgver}.tar.gz::https://github.com/prompt-toolkit/ptpython/archive/refs/tags/${pkgver}.tar.gz")
 sha256sums=('9fa0c4fc2d43a0a2c0cb472c5c23e34cf54d2beb65cd6df59f6dbded156eb6af')
 
-prepare() {
-    cp -a "${srcdir}/${pkgbase}-${pkgver}" "${srcdir}/${pkgbase}2-${pkgver}"
-}
+# prepare() {
+#     cp -a "${srcdir}/${pkgname}-${pkgver}" "${srcdir}/${pkgname}2-${pkgver}"
+# }
 
 build() {
-    cd "${srcdir}/${pkgbase}-${pkgver}"
+    cd "${srcdir}/${pkgname}-${pkgver}"
     python setup.py build
 }
 
 package() {
-    cd "${srcdir}/${pkgbase}-${pkgver}"
+    cd "${srcdir}/${pkgname}-${pkgver}"
     python setup.py install --skip-build --root="${pkgdir}" --optimize=1
     install -D --mode 644 --target-directory "$pkgdir/usr/share/licenses/$pkgname" LICENSE
 }

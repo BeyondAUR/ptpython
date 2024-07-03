@@ -1,16 +1,19 @@
-# build directories under makepkg
-/src/
-/pkg/
+# Created by https://www.toptal.com/developers/gitignore/api/archlinuxpackages
+# Edit at https://www.toptal.com/developers/gitignore?templates=archlinuxpackages
 
-# sources
-*.tar.gz
+### ArchLinuxPackages ###
+*.tar
+*.tar.*
+*.jar
+*.exe
+*.msi
+*.zip
+*.tgz
+*.log
+*.log.*
+*.sig
 
-# build logs
-*-build.log
-*-namcap.log
-*-package*.log
-*-prepare.log
+pkg/
+src/
 
-# packages
-*.pkg.tar.xz
-*.pkg.tar.zst
+# End of https://www.toptal.com/developers/gitignore/api/archlinuxpackages
