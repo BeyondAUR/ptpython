@@ -23,7 +23,7 @@ optdepends=(
 )
 provides=("ptpython3")
 source=("${pkgname}-${pkgver}.tar.gz::https://github.com/prompt-toolkit/ptpython/archive/refs/tags/${pkgver}.tar.gz")
-sha256sums=('9fa0c4fc2d43a0a2c0cb472c5c23e34cf54d2beb65cd6df59f6dbded156eb6af')
+sha256sums=('9c8110a1b6155a5cf13bea8e1ea005222cab61d7a10850a13d8c920041407972')
 
 # prepare() {
 #     cp -a "${srcdir}/${pkgname}-${pkgver}" "${srcdir}/${pkgname}2-${pkgver}"
