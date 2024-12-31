@@ -3,7 +3,7 @@
 # Contributor: <kwrazi at gmail dot com>
 
 pkgname="ptpython"
-pkgver="3.0.27"
+pkgver="3.0.29"
 pkgrel="1"
 pkgdesc="Python REPL build on top of prompt_toolkit"
 arch=("any")
@@ -11,7 +11,6 @@ url="https://github.com/prompt-toolkit/ptpython"
 license=("BSD")
 makedepends=("python-setuptools")
 depends=(
-    "python-docopt"
     "python-jedi>=0.9.0"
     "python-prompt_toolkit>=3.0.3"
     "python-pygments"
@@ -23,7 +22,7 @@ optdepends=(
 )
 provides=("ptpython3")
 source=("${pkgname}-${pkgver}.tar.gz::https://github.com/prompt-toolkit/ptpython/archive/refs/tags/${pkgver}.tar.gz")
-sha256sums=('9c8110a1b6155a5cf13bea8e1ea005222cab61d7a10850a13d8c920041407972')
+sha256sums=('168bdc7fb74cdc2e9f6410cbde8c7ca7c23702796d9a931f6cc9a05badc82c7b')
 
 # prepare() {
 #     cp -a "${srcdir}/${pkgname}-${pkgver}" "${srcdir}/${pkgname}2-${pkgver}"
