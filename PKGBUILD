@@ -3,18 +3,17 @@
 # Contributor: <kwrazi at gmail dot com>
 
 pkgname="ptpython"
-pkgver="3.0.29"
+pkgver="3.0.30"
 pkgrel="1"
 pkgdesc="Python REPL build on top of prompt_toolkit"
 arch=("any")
 url="https://github.com/prompt-toolkit/ptpython"
 license=("BSD")
-makedepends=("python-setuptools")
+makedepends=("python-setuptools" "python-build" "python-installer")
 depends=(
     "python-jedi>=0.9.0"
-    "python-prompt_toolkit>=3.0.3"
+    "python-prompt_toolkit>=3.0.43"
     "python-pygments"
-    "python-black"
     "python-appdirs"
 )
 optdepends=(
@@ -22,7 +21,7 @@ optdepends=(
 )
 provides=("ptpython3")
 source=("${pkgname}-${pkgver}.tar.gz::https://github.com/prompt-toolkit/ptpython/archive/refs/tags/${pkgver}.tar.gz")
-sha256sums=('168bdc7fb74cdc2e9f6410cbde8c7ca7c23702796d9a931f6cc9a05badc82c7b')
+sha256sums=('d893e71d45a3f6902085aa3cc14629f5a96709ffca51706aef97db1bfb31fcaf')
 
 # prepare() {
 #     cp -a "${srcdir}/${pkgname}-${pkgver}" "${srcdir}/${pkgname}2-${pkgver}"
@@ -30,11 +29,11 @@ sha256sums=('168bdc7fb74cdc2e9f6410cbde8c7ca7c23702796d9a931f6cc9a05badc82c7b')
 
 build() {
     cd "${srcdir}/${pkgname}-${pkgver}"
-    python setup.py build
+    python -m build -wn
 }
 
 package() {
     cd "${srcdir}/${pkgname}-${pkgver}"
-    python setup.py install --skip-build --root="${pkgdir}" --optimize=1
+    python -m installer -d "$pkgdir" dist/*.whl
     install -D --mode 644 --target-directory "$pkgdir/usr/share/licenses/$pkgname" LICENSE
 }
